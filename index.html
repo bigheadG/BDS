@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Scatter Plot and Image Overlay</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>My First Web-Based Program with Plotly.js</h1>
+    <div id="scatter3d" style="width: 100%; height: 500px;"></div>
+    <div id="imageOverlay" style="width: 100%; height: 500px;"></div>
+
+    <script>
+        // Data for 3D Scatter Plot
+        const scatter3dData = {
+            x: [0.1, 0.2, 0.3, 0.4], // Replace with your posX values
+            y: [0.5, 0.6, 0.7, 0.8], // Replace with your posZ values
+            z: [1.1, 1.2, 1.3, 1.4], // Replace with your posY values
+            mode: 'markers',
+            marker: {
+                size: 5,
+                color: 'red'
+            },
+            type: 'scatter3d'
+        };
+
+        const scatter3dLayout = {
+            title: '3D Scatter Plot of posX, posZ, and posY',
+            scene: {
+                xaxis: {title: 'X Position'},
+                yaxis: {title: 'Z Position'},
+                zaxis: {title: 'Y Position'}
+            }
+        };
+
+        Plotly.newPlot('scatter3d', [scatter3dData], scatter3dLayout);
+
+        // Data for Image with Overlayed Points
+        const imageOverlayData = [
+            {
+                x: [0.1, 0.2, 0.3, 0.4], // Replace with your posX values
+                y: [0.5, 0.6, 0.7, 0.8], // Replace with your posY values
+                mode: 'markers',
+                marker: {
+                    size: 8,
+                    color: 'blue'
+                },
+                type: 'scatter'
+            }
+        ];
+
+        const imageOverlayLayout = {
+            title: 'Image with Points Overlay',
+            images: [
+                {
+                    source: 'assets/IMG_9423.jpg', // Ensure the image is accessible
+                    x: 0,
+                    y: 4,
+                    xref: 'x',
+                    yref: 'y',
+                    sizex: 4, // Real size
+                    sizey: 4, // Real size
+                    xanchor: 'left',
+                    yanchor: 'top',
+                    layer: 'below'
+                }
+            ],
+            xaxis: {
+                range: [0, 4],
+                title: 'X Axis'
+            },
+            yaxis: {
+                range: [0, 4],
+                title: 'Y Axis'
+            }
+        };
+
+        Plotly.newPlot('imageOverlay', imageOverlayData, imageOverlayLayout);
+    </script>
+</body>
+</html>
