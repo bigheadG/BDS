@@ -51,7 +51,7 @@
     <script>
         // MQTT Broker Configuration
         //const brokerUrl = 'ws://59.124.7.99:8080';  // 192.168.0.47 Change 'localhost' to your broker's IP
-        const brokerUrl = 'ws://test.mosquitto.org:8080';  // Change 'localhost' to your broker's IP
+        const brokerUrl = 'wss://test.mosquitto.org:8080';  // Change 'localhost' to your broker's IP
         const options = {
             clientId: 'mqtt_client_' + Math.random().toString(16).substr(2, 8),  // Generate a unique client ID
             clean: true,  // Clean session
